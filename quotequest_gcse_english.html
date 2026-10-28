@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QuoteQuest GCSE English</title>
+<style>
+:root{--bg:#f5f6fb;--card:#fff;--ink:#1c2340;--muted:#68708a;--accent:#5b5bd6;--accent2:#e9e9ff;--good:#137a52;--goodbg:#e1f7ed;--bad:#a33342;--badbg:#ffeaed;--line:#e4e6f0;--shadow:0 12px 35px rgba(28,35,64,.08)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(140deg,#f5f6fb,#eef0ff);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);min-height:100vh}
+header{padding:25px 18px 18px;text-align:center}header .logo{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:15px;background:var(--accent);color:white;font-size:25px;box-shadow:var(--shadow)}h1{font-size:clamp(1.8rem,5vw,2.6rem);margin:12px 0 5px;letter-spacing:-.04em}header p{margin:0;color:var(--muted)}
+main{max-width:980px;margin:0 auto;padding:0 16px 45px}.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:12px 0 20px}.tab{border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:12px;padding:11px 17px;font-weight:750;cursor:pointer}.tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,4vw,30px);box-shadow:var(--shadow)}.hidden{display:none!important}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:17px}.pill{font-size:.8rem;font-weight:800;background:var(--accent2);color:var(--accent);border-radius:999px;padding:7px 11px}.muted{color:var(--muted)}.progress-wrap{height:8px;background:#edeef6;border-radius:99px;overflow:hidden;margin:13px 0 22px}.progress{height:100%;width:0;background:linear-gradient(90deg,#5b5bd6,#8b78f5);transition:width .25s}
+.quote{font-size:clamp(1.4rem,4vw,2.2rem);font-weight:800;line-height:1.4;letter-spacing:-.025em;margin:18px 0}.quote small{font-size:.8rem;color:var(--muted);display:block;font-weight:650;letter-spacing:0;margin-top:12px}.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:22px 0}.detail{background:#f8f8fd;border:1px solid var(--line);border-radius:14px;padding:15px}.detail b{display:block;margin-bottom:6px;font-size:.83rem;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}.detail p{margin:0;line-height:1.55}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{border:0;border-radius:12px;padding:12px 17px;font-weight:800;cursor:pointer;font-size:.95rem;transition:transform .12s,opacity .12s}.btn:active{transform:scale(.98)}.primary{background:var(--accent);color:#fff}.secondary{background:#f0f1fa;color:var(--ink)}.success{background:var(--goodbg);color:var(--good)}.outline{background:#fff;border:1px solid var(--line);color:var(--ink)}.btn:disabled{opacity:.45;cursor:not-allowed}
+.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 18px}.stat{padding:14px;background:#f8f8fd;border:1px solid var(--line);border-radius:14px;text-align:center}.stat strong{display:block;font-size:1.55rem}.stat span{font-size:.82rem;color:var(--muted)}
+select,input[type=text]{width:100%;border:1px solid #d9dced;border-radius:11px;padding:12px;font:inherit;background:#fff;color:var(--ink)}label{display:block;font-weight:750;font-size:.9rem;margin-bottom:8px}.field{margin:15px 0}.quizitem{border:1px solid var(--line);border-radius:15px;padding:18px;margin:14px 0;background:#fff}.quizitem .quote{font-size:1.2rem;line-height:1.8;margin:10px 0}.blank{display:inline-block;min-width:76px;max-width:140px;vertical-align:middle;margin:2px 3px}.blank input{padding:7px 8px;text-align:center;font-weight:750;border-radius:8px}.feedback{font-weight:750;margin-top:10px;font-size:.9rem}.correct{color:var(--good)}.incorrect{color:var(--bad)}.bank-list{display:grid;gap:10px;margin-top:18px}.bank-item{border:1px solid var(--line);border-radius:13px;padding:13px 15px;display:flex;align-items:center;justify-content:space-between;gap:12px}.bank-item p{margin:3px 0 0;color:var(--muted);font-size:.86rem}.empty{text-align:center;padding:28px 10px;color:var(--muted)}.small{font-size:.85rem}.flashcard-stage{perspective:1000px;max-width:620px;margin:20px auto}.flashcard{min-height:245px;border:0;border-radius:22px;background:linear-gradient(140deg,#5b5bd6,#8878f2);color:white;width:100%;padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;box-shadow:var(--shadow)}.flashcard .side-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;opacity:.8;font-weight:800}.flashcard .card-text{font-size:clamp(1.35rem,4vw,2rem);font-weight:850;line-height:1.45;margin:17px 0}.flashcard .tap-hint{font-size:.85rem;opacity:.8}.motivation{border-radius:13px;padding:13px 15px;background:#f4f2ff;color:#4940a6;line-height:1.5;margin-top:14px;font-weight:750}.footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:18px}
+@media(max-width:540px){.statrow{gap:6px}.stat{padding:11px 5px}.stat strong{font-size:1.3rem}.btn{flex:1}.panel{border-radius:17px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">✦</div>
+  <h1>QuoteQuest</h1>
+  <p>Your GCSE English quote-learning lab</p>
+</header>
+<main>
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-view="learn">📚 Learn quotes</button>
+    <button class="tab" data-view="quiz">✍️ Fill the gaps</button>
+    <button class="tab" data-view="flashcards">🃏 Flashcards</button>
+    <button class="tab" data-view="bank">🧠 Learned bank</button>
+  </div>
+  <section id="learn" class="panel">
+    <div class="topline"><span class="pill">LEARN MODE</span><span id="learnCount" class="muted small">Quote 1 of 20</span></div>
+    <div class="field">
+      <label for="textSelect">Choose your text</label>
+      <select id="textSelect"><option value="all">Both texts</option><option value="Macbeth">Macbeth</option><option value="Jekyll and Hyde">Jekyll &amp; Hyde</option></select>
+    </div>
+    <div class="field">
+      <label for="filterSelect">Show me</label>
+      <select id="filterSelect"><option value="all">All quotes</option><option value="unlearned">Quotes I haven't learned</option><option value="learned">Quotes I've learned</option></select>
+    </div>
+    <div class="progress-wrap"><div class="progress" id="learnProgress"></div></div>
+    <div id="learnContent"></div>
+    <div class="actions">
+      <button class="btn outline" id="prevBtn">← Previous</button>
+      <button class="btn secondary" id="revealBtn">Hide quote</button>
+      <button class="btn success" id="learnedBtn">✓ I've learned this</button>
+      <button class="btn primary" id="nextBtn">Next quote →</button>
+    </div>
+    <div class="actions"><button class="btn outline" id="startQuizBtn">Move on to quiz →</button></div>
+  </section>
+  <section id="quiz" class="panel hidden">
+    <div class="topline"><span class="pill">GAP-FILL CHALLENGE</span><span id="quizRound" class="muted small">Round 1</span></div>
+    <h2 style="margin:0 0 7px">Can you complete the quotes?</h2>
+    <p class="muted" style="margin-top:0">Missing words change every round. Type the missing word or words, then check your answers.</p>
+    <div class="field"><label for="quizText">Choose your text</label><select id="quizText"><option value="all">Both texts</option><option value="Macbeth">Macbeth</option><option value="Jekyll and Hyde">Jekyll &amp; Hyde</option></select></div>
+    <div class="field"><label for="gapLevel">Difficulty</label><select id="gapLevel"><option value="easy">Easy — fewer gaps</option><option value="medium" selected>Medium</option><option value="hard">Hard — more gaps</option></select></div>
+    <div class="statrow"><div class="stat"><strong id="score">—</strong><span>Last score</span></div><div class="stat"><strong id="streak">0</strong><span>Rounds completed</span></div><div class="stat"><strong id="best">—</strong><span>Best score</span></div></div>
+    <div id="quizQuestions"></div>
+    <div class="actions"><button class="btn primary" id="checkBtn">Check answer</button><button class="btn secondary" id="nextQuestionBtn">Next question →</button><button class="btn outline" id="newRoundBtn">🔀 New random round</button></div>
+    <p id="quizFeedback" class="feedback" aria-live="polite"></p>
+  </section>
+  <section id="flashcards" class="panel hidden">
+    <div class="topline"><span class="pill">FLASHCARD MODE</span><span id="flashCount" class="muted small">Card 1 of 20</span></div>
+    <h2 style="margin:0 0 7px">Quick-fire quote memory</h2>
+    <p class="muted" style="margin-top:0">Try to remember the quote or what it means before flipping the card.</p>
+    <div class="field"><label for="flashText">Choose your text</label><select id="flashText"><option value="all">Both texts</option><option value="Macbeth">Macbeth</option><option value="Jekyll and Hyde">Jekyll &amp; Hyde</option></select></div>
+    <div class="flashcard-stage"><button id="flashCard" class="flashcard" type="button" aria-label="Flip flashcard"><span class="side-label" id="flashSide">QUOTE</span><span class="card-text" id="flashCardText">Fair is foul, and foul is fair.</span><span class="tap-hint">Tap to flip</span></button></div>
+    <p id="flashMeta" class="muted small" style="text-align:center"></p>
+    <div class="actions"><button class="btn outline" id="flashPrev">← Previous</button><button class="btn secondary" id="flashFlip">Flip card</button><button class="btn primary" id="flashNext">Next card →</button></div>
+    <div class="actions"><button class="btn success" id="flashKnown">✓ I know this one</button><button class="btn outline" id="flashShuffle">🔀 Shuffle cards</button></div>
+    <div id="flashMotivation" class="motivation">Small steps add up — one quote at a time.</div>
+  </section>
+  <section id="bank" class="panel hidden">
+    <div class="topline"><span class="pill">YOUR MEMORY BANK</span><span id="bankCount" class="muted small">0 learned</span></div>
+    <h2 style="margin-top:0">Quotes you've learned</h2>
+    <p class="muted">When you mark a quote as learned, it is saved here on this device. You can unlearn it if you want to practise it again.</p>
+    <div class="statrow"><div class="stat"><strong id="macCount">0/10</strong><span>Macbeth</span></div><div class="stat"><strong id="jekyllCount">0/10</strong><span>Jekyll &amp; Hyde</span></div><div class="stat"><strong id="totalCount">0/20</strong><span>Total learned</span></div></div>
+    <div id="bankContent" class="bank-list"></div>
+    <div class="actions"><button class="btn primary" id="bankQuizBtn">Quiz me on both texts →</button><button class="btn outline" id="resetBtn">Reset progress</button></div>
+  </section>
+  <div class="footer">Progress is saved in your browser on this device. Keep practising little and often.</div>
+</main>
+<script>
+const quotes = [
+{ id:"m1",text:"Macbeth",quote:"Fair is foul, and foul is fair.",act:"Act 1, Scene 1",theme:"Witchcraft and deception",meaning:"The witches make good and evil seem interchangeable, creating a world where appearances cannot be trusted.",analysis:"The paradox and repetition of “foul” and “fair” blur the boundary between right and wrong. A Jacobean audience may connect this disorder with the Devil and witchcraft."},
+{ id:"m2",text:"Macbeth",quote:"So foul and fair a day I have not seen.",act:"Act 1, Scene 3",theme:"The supernatural",meaning:"Macbeth echoes the witches’ language after a battle that was both successful and horrific.",analysis:"The echo foreshadows Macbeth’s connection to the witches. The contradictory words suggest that appearances and morality will become confused."},
+{ id:"m3",text:"Macbeth",quote:"This supernatural soliciting / Cannot be ill, cannot be good.",act:"Act 1, Scene 3",theme:"Temptation and uncertainty",meaning:"Macbeth cannot decide whether the witches’ prediction is good or evil.",analysis:"The contrast between “ill” and “good” reveals inner conflict. “Soliciting” suggests temptation or persuasion, as the prophecy awakens his ambition."},
+{ id:"m4",text:"Macbeth",quote:"My thought, whose murder yet is but fantastical.",act:"Act 1, Scene 3",theme:"Ambition and violence",meaning:"Macbeth is already imagining murder, even though he has not acted.",analysis:"“Murder” introduces violent ambition early, while “fantastical” suggests the thought is still imaginary. The supernatural prediction helps expose desires already growing inside him."},
+{ id:"m5",text:"Macbeth",quote:"I have no spur / To prick the sides of my intent, but only / Vaulting ambition.",act:"Act 1, Scene 7",theme:"Ambition",meaning:"Macbeth admits that ambition, rather than a good reason, is driving him towards killing Duncan.",analysis:"The horse-riding metaphor in “spur” and “prick” presents ambition as something that pushes him forward. “Vaulting” suggests ambition can overreach and cause a fall."},
+{ id:"m6",text:"Macbeth",quote:"Is this a dagger which I see before me?",act:"Act 2, Scene 1",theme:"The supernatural and guilt",meaning:"Before killing Duncan, Macbeth sees or imagines a dagger leading him towards the murder.",analysis:"The rhetorical question shows uncertainty and a disturbed mind. The vision may be supernatural or a hallucination caused by fear and ambition."},
+{ id:"m7",text:"Macbeth",quote:"Will all great Neptune’s ocean wash this blood / Clean from my hand?",act:"Act 2, Scene 2",theme:"Guilt",meaning:"Macbeth believes his guilt is too great to be washed away.",analysis:"The hyperbole of an entire ocean being unable to clean his hand makes his guilt seem enormous. Blood becomes a symbol of the consequences of regicide."},
+{ id:"m8",text:"Macbeth",quote:"Out, damned spot! out, I say!",act:"Act 5, Scene 1",theme:"Guilt",meaning:"Lady Macbeth imagines blood on her hands that she cannot remove.",analysis:"The imperative “Out” shows desperation, while “damned” suggests spiritual punishment. This reverses her earlier confidence that water could wash away the deed."},
+{ id:"m9",text:"Macbeth",quote:"None of woman born shall harm Macbeth.",act:"Act 4, Scene 1",theme:"Prophecy and deception",meaning:"Macbeth trusts the apparition’s prediction and becomes overconfident.",analysis:"The wording is equivocal: it sounds reassuring but hides a double meaning. Shakespeare shows how the supernatural can mislead those who hear only what they want to believe."},
+{ id:"m10",text:"Macbeth",quote:"Life’s but a walking shadow, a poor player / That struts and frets his hour upon the stage.",act:"Act 5, Scene 5",theme:"Meaninglessness and mortality",meaning:"Macbeth describes life as brief, insubstantial and like an actor’s performance.",analysis:"The metaphor of a “shadow” suggests emptiness, while the theatre metaphor makes life seem temporary and insignificant. It reflects Macbeth’s despair after his choices have destroyed his world."},
+{ id:"j1",text:"Jekyll and Hyde",quote:"Man is not truly one, but truly two.",act:"Chapter 10",theme:"Duality of human nature",meaning:"Jekyll believes every person contains conflicting sides of their personality.",analysis:"The repetition of “truly” makes Jekyll sound certain. The contrast between “one” and “two” expresses the novella’s central idea of duality."},
+{ id:"j2",text:"Jekyll and Hyde",quote:"I stood already committed to a profound duplicity of life.",act:"Chapter 10",theme:"Secrecy and reputation",meaning:"Jekyll admits he had already begun living a double life.",analysis:"“Duplicity” means deceitfulness or double-dealing. Stevenson criticises the pressure to maintain a respectable public reputation while hiding private behaviour."},
+{ id:"j3",text:"Jekyll and Hyde",quote:"There is something wrong with his appearance; something displeasing, something downright detestable.",act:"Chapter 1",theme:"Appearance and evil",meaning:"Enfield struggles to explain why Hyde looks so unpleasant and disturbing.",analysis:"The repetition of “something” shows that Hyde’s evil is difficult to describe. The escalating adjectives create disgust and mystery around his appearance."},
+{ id:"j4",text:"Jekyll and Hyde",quote:"I feel very strongly about putting questions; it partakes too much of the style of the day of judgment.",act:"Chapter 1",theme:"Secrecy and morality",meaning:"Enfield says asking questions feels like being judged at the end of the world.",analysis:"The religious reference to “judgment” suggests moral scrutiny. It reflects the characters’ reluctance to expose secrets and judge others openly."},
+{ id:"j5",text:"Jekyll and Hyde",quote:"If he be Mr. Hyde, I shall be Mr. Seek.",act:"Chapter 2",theme:"Mystery and curiosity",meaning:"Utterson jokes that he will search for Hyde if Hyde is his name.",analysis:"The pun on “Hyde” and “Seek” creates a lighter moment, but it also establishes Utterson’s determination to uncover the truth."},
+{ id:"j6",text:"Jekyll and Hyde",quote:"The moment I choose, I can be rid of Mr. Hyde.",act:"Chapter 5",theme:"Control and denial",meaning:"Jekyll claims he can stop Hyde whenever he wants.",analysis:"The confident phrase “I can” shows Jekyll’s belief that he is in control. Dramatic irony develops because the reader learns that Hyde’s influence is becoming harder to resist."},
+{ id:"j7",text:"Jekyll and Hyde",quote:"My devil had been long caged, he came out roaring.",act:"Chapter 10",theme:"Repression and evil",meaning:"Jekyll describes his hidden darker side bursting out after being restrained.",analysis:"The metaphor of a caged “devil” presents Hyde as a dangerous, animalistic force. “Roaring” suggests violence and power, linking to Victorian fears about hidden desires."},
+{ id:"j8",text:"Jekyll and Hyde",quote:"I was slowly losing hold of my original and better self.",act:"Chapter 10",theme:"Loss of control",meaning:"Jekyll realises that his respectable identity is weakening as Hyde grows stronger.",analysis:"“Losing hold” suggests a gradual loss of control. “Better self” reveals Jekyll’s moral judgement of his own identities and the consequences of separating them."},
+{ id:"j9",text:"Jekyll and Hyde",quote:"The moment I choose, I can be rid of Mr. Hyde.",act:"Chapter 5",theme:"Self-deception",meaning:"Jekyll reassures Utterson that Hyde is not a serious threat.",analysis:"The certainty of “the moment I choose” reveals denial and overconfidence. This becomes ironic as Jekyll later struggles to control his transformations."},
+{ id:"j10",text:"Jekyll and Hyde",quote:"I bring the life of that unhappy Henry Jekyll to an end.",act:"Chapter 10",theme:"Consequences and identity",meaning:"Jekyll’s final statement shows that his experiment has destroyed the life he once knew.",analysis:"The formal phrase “bring the life … to an end” sounds like a final confession. Stevenson warns that trying to separate and indulge hidden impulses can have devastating consequences."}
+];
+// Avoid duplicate quote cards in study bank by using unique IDs; replace duplicate Jekyll quote with a different commonly studied quote.
+quotes[8] = {id:"j9",text:"Jekyll and Hyde",quote:"I concealed my pleasures.",act:"Chapter 10",theme:"Repression and secrecy",meaning:"Jekyll admits that he hid his private pleasures to protect his respectable reputation.",analysis:"The verb “concealed” suggests deliberate secrecy. Stevenson explores how strict Victorian expectations can encourage people to hide parts of themselves."};
+const $ = id => document.getElementById(id);
+const storageKey = "quotequest-gcse-v1";
+let saved = {learned:[],best:0,rounds:0,last:null};
+try{saved = {...saved,...JSON.parse(localStorage.getItem(storageKey)||"{}")}}catch(e){}
+let learnIndex=0, currentQuotes=[], quizItems=[], checked=false, quizIndex=0, quizCorrect=0, quizTotal=0, flashQuotes=[], flashIndex=0, flashFlipped=false;
+function persist(){try{localStorage.setItem(storageKey,JSON.stringify(saved))}catch(e){}}
+function poolFor(selectValue, filter="all"){
+ let p=quotes.filter(q=>selectValue==="all"||q.text===selectValue);
+ if(filter==="learned")p=p.filter(q=>saved.learned.includes(q.id));
+ if(filter==="unlearned")p=p.filter(q=>!saved.learned.includes(q.id));
+ return p;
+}
+function switchView(view){document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.view===view));["learn","quiz","flashcards","bank"].forEach(v=>$(v).classList.toggle("hidden",v!==view));if(view==="learn")renderLearn();if(view==="bank")renderBank();if(view==="quiz"&&!quizItems.length)newRound();if(view==="flashcards"&&!flashQuotes.length)setupFlashcards();}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>switchView(b.dataset.view)));
+function renderLearn(){
+ let p=poolFor($("textSelect").value,$("filterSelect").value);
+ if(learnIndex>=p.length)learnIndex=Math.max(0,p.length-1);
+ $("learnCount").textContent=p.length?`Quote ${learnIndex+1} of ${p.length}`:"No quotes in this filter";
+ $("learnProgress").style.width=p.length?`${((learnIndex+1)/p.length)*100}%`:"0%";
+ if(!p.length){$("learnContent").innerHTML='<div class="empty">Nothing here yet. Try a different filter or text.</div>';$("prevBtn").disabled=true;$("nextBtn").disabled=true;$("learnedBtn").disabled=true;$("revealBtn").disabled=true;return}
+ $("prevBtn").disabled=learnIndex===0;$("nextBtn").disabled=learnIndex>=p.length-1;$("learnedBtn").disabled=false;$("revealBtn").disabled=false;
+ const q=p[learnIndex], learned=saved.learned.includes(q.id);
+ $("learnedBtn").textContent=learned?"✓ Learned — click to undo":"✓ I've learned this";
+ $("learnedBtn").className="btn "+(learned?"secondary":"success");
+ $("learnContent").innerHTML=`<div class="topline"><span class="pill">${q.text}</span><span class="muted small">${q.act}</span></div><div id="quoteReveal"><div class="quote">“${q.quote}”</div></div><button class="btn secondary" id="detailsToggle" type="button">💡 Show meaning &amp; analysis</button><div class="detail-grid hidden" id="quoteDetails"><div class="detail"><b>Theme</b><p>${q.theme}</p></div><div class="detail"><b>In simple English</b><p>${q.meaning}</p></div><div class="detail"><b>Analysis you can use</b><p>${q.analysis}</p></div></div>`;
+ $("revealBtn").textContent="Hide quote";
+}
+$("learnContent").addEventListener("click",e=>{if(e.target&&e.target.id==="detailsToggle"){const details=$("quoteDetails");details.classList.toggle("hidden");e.target.textContent=details.classList.contains("hidden")?"💡 Show meaning & analysis":"🙈 Hide meaning & analysis"}});
+$("textSelect").addEventListener("change",()=>{learnIndex=0;renderLearn()});
+$("filterSelect").addEventListener("change",()=>{learnIndex=0;renderLearn()});
+$("prevBtn").addEventListener("click",()=>{learnIndex--;renderLearn()});
+$("nextBtn").addEventListener("click",()=>{learnIndex++;renderLearn()});
+$("learnedBtn").addEventListener("click",()=>{let p=poolFor($("textSelect").value,$("filterSelect").value);if(!p.length)return;let q=p[learnIndex];if(saved.learned.includes(q.id))saved.learned=saved.learned.filter(id=>id!==q.id);else saved.learned.push(q.id);persist();renderLearn();renderBank()});
+$("revealBtn").addEventListener("click",()=>{let el=$("quoteReveal");if(!el)return;let quote=el.querySelector(".quote");if(quote){quote.classList.toggle("hidden");$("revealBtn").textContent=quote.classList.contains("hidden")?"Show quote":"Hide quote"}});
+function shuffle(a){let arr=[...a];for(let i=arr.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
+function wordsOf(q){return q.match(/[A-Za-z0-9’'-]+|[^A-Za-z0-9’'-]+/g)||[q]}
+function newRound(){
+ let p=poolFor($("quizText").value);
+ p=shuffle(p).slice(0,Math.min(10,p.length));
+ let level=$("gapLevel").value;
+ quizItems=p.map(q=>{
+  let tokens=wordsOf(q.quote), wordIndices=[];
+  tokens.forEach((t,i)=>{if(/^[A-Za-z0-9’'-]+$/.test(t)&&t.length>=3)wordIndices.push(i)});
+  let count=level==="easy"?Math.max(1,Math.floor(wordIndices.length*.18)):level==="hard"?Math.max(2,Math.ceil(wordIndices.length*.48)):Math.max(1,Math.ceil(wordIndices.length*.32));
+  let gaps=shuffle(wordIndices).slice(0,Math.min(count,wordIndices.length)).sort((a,b)=>a-b);
+  return {q,tokens,gaps,answers:gaps.map(i=>tokens[i]),result:null,answered:false};
+ });
+ quizIndex=0;quizCorrect=0;quizTotal=0;checked=false;renderQuiz();$("quizFeedback").textContent="";
+ $("checkBtn").textContent="Check answer";$("newRoundBtn").textContent="Start fresh round";
+}
+function renderQuiz(){
+ $("quizRound").textContent=quizItems.length?`Question ${Math.min(quizIndex+1,quizItems.length)} of ${quizItems.length}`:"No quotes";
+ $("score").textContent=saved.last===null?"—":`${saved.last}%`;
+ $("streak").textContent=saved.rounds;
+ $("best").textContent=saved.best===0?"—":`${saved.best}%`;
+ if(!quizItems.length){$("quizQuestions").innerHTML='<div class="empty">No quotes found for that selection.</div>';return}
+ if(quizIndex>=quizItems.length){
+   const pct=quizTotal?Math.round(quizCorrect/quizTotal*100):0;
+   $("quizQuestions").innerHTML=`<div class="empty"><div style="font-size:2.3rem">🎉</div><h2>Round complete!</h2><p>You got <b>${quizCorrect} out of ${quizTotal}</b> gaps right (${pct}%).</p><p>${pct===100?"Flawless! You absolutely smashed that round.":pct>=75?"Great effort! A little more practice will lock these quotes in.":"You’ve got this — every mistake is a clue about what to practise next."}</p></div>`;
+   $("checkBtn").disabled=true;$("checkBtn").textContent="Round complete";$("nextQuestionBtn").disabled=true;$("newRoundBtn").textContent="🔀 Play another round";$("quizFeedback").textContent="";
+   return;
+ }
+ const it=quizItems[quizIndex], idx=quizIndex;
+ let html="";it.tokens.forEach((t,i)=>{let gapPos=it.gaps.indexOf(i);if(gapPos>=0){html+=`<span class="blank"><input type="text" aria-label="Missing word ${gapPos+1}" data-gap="${gapPos}" value="${escapeHtml(it.userAnswers?.[gapPos]||"")}" ${it.answered?"disabled":""} autocomplete="off" spellcheck="false"></span>`}else html+=escapeHtml(t)});
+ $("quizQuestions").innerHTML=`<div class="quizitem"><div class="topline"><span class="pill">${it.q.text}</span><span class="muted small">${it.q.act}</span></div><div class="progress-wrap"><div class="progress" style="width:${((idx+1)/quizItems.length)*100}%"></div></div><div class="quote">“${html}”</div><div class="muted small">${it.answered?`Full quote: “${escapeHtml(it.q.quote)}”`:"Fill each blank with the exact missing word."}</div><div id="currentFeedback" class="feedback">${it.result||""}</div>${it.answered?`<div class="motivation">${it.gaps.every((g,j)=>it.userAnswers?.[j]?.trim().toLowerCase().replace(/[.,!?;:’']/g,"")===it.answers[j].trim().toLowerCase().replace(/[.,!?;:’']/g,""))?"🔥 Brilliant! You nailed it. Keep that momentum going!":"💪 No worries — getting it wrong is part of learning. Read the full quote, say it aloud, and try to remember it next time."}</div>`:""}</div>`;
+ $("checkBtn").disabled=it.answered;$("checkBtn").textContent=it.answered?"Answer checked":"Check answer";$("nextQuestionBtn").disabled=!it.answered;$("nextQuestionBtn").textContent=idx===quizItems.length-1?"Finish round →":"Next question →";
+ $("newRoundBtn").textContent="🔀 New random round";
+}
+function normAnswer(s){return String(s||"").trim().toLocaleLowerCase().replace(/[.,!?;:’']/g,"")}
+$("checkBtn").addEventListener("click",()=>{
+ if(quizIndex>=quizItems.length)return;
+ const it=quizItems[quizIndex];if(it.answered)return;
+ const inputs=[...document.querySelectorAll("#quizQuestions input[data-gap]")];
+ it.userAnswers=inputs.map(input=>input.value);
+ let got=0;
+ inputs.forEach((input,j)=>{quizTotal++;if(normAnswer(input.value)===normAnswer(it.answers[j]))got++});
+ quizCorrect+=got;it.answered=true;
+ const allCorrect=got===inputs.length;
+ it.result=allCorrect?`✓ Correct! ${got}/${inputs.length} gaps.`:`${got}/${inputs.length} correct. Answers to remember: ${it.answers.map(escapeHtml).join(", ")}`;
+ renderQuiz();
+ if(quizIndex===quizItems.length-1){
+   const pct=quizTotal?Math.round(quizCorrect/quizTotal*100):0;
+   saved.last=pct;saved.best=Math.max(saved.best||0,pct);saved.rounds=(saved.rounds||0)+1;persist();
+   $("quizFeedback").textContent=allCorrect?"Perfect answer! You're finishing this round strong.":"Keep going — you're building recall every time you practise.";
+ }else{
+   $("quizFeedback").textContent=allCorrect?"Correct! Keep that streak alive 🔥":"Good try! Read the full quote once, then carry on 💪";
+ }
+});
+$("newRoundBtn").addEventListener("click",newRound);
+$("quizText").addEventListener("change",newRound);$("gapLevel").addEventListener("change",newRound);
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+$("checkBtn").addEventListener("click",()=>{
+ if(checked)return;
+ let total=0,correct=0;
+ quizItems.forEach((it,idx)=>{
+  let ins=[...document.querySelectorAll(`input[data-q="${idx}"]`)];
+  ins.forEach((input,j)=>{total++;let answer=(input.value||"").trim().toLocaleLowerCase().replace(/[.,!?;:’']/g,"");let expected=it.answers[j].trim().toLocaleLowerCase().replace(/[.,!?;:’']/g,"");if(answer===expected)correct++});
+  it.result="";
+ });
+ let pct=total?Math.round(correct/total*100):0;
+ quizItems.forEach((it,idx)=>{
+  let ins=[...document.querySelectorAll(`input[data-q="${idx}"]`)],miss=[];
+  ins.forEach((input,j)=>{let a=(input.value||"").trim().toLocaleLowerCase().replace(/[.,!?;:’']/g,""),e=it.answers[j].trim().toLocaleLowerCase().replace(/[.,!?;:’']/g,"");if(a!==e)miss.push(it.answers[j])});
+  it.result=miss.length===0?"✓ All gaps correct!":`Keep practising — missing answer${miss.length>1?"s":""}: ${miss.map(escapeHtml).join(", ")}`;
+ });
+ checked=true;saved.last=pct;saved.best=Math.max(saved.best||0,pct);saved.rounds=(saved.rounds||0)+1;persist();renderQuiz();
+ $("quizFeedback").textContent=`You got ${correct} out of ${total} gaps (${pct}%). ${pct===100?"Perfect round — brilliant work!":pct>=70?"Good work — repeat the tricky quotes.":"No stress: review the quotes, then try a fresh round."}`;
+});
+$("newRoundBtn").addEventListener("click",newRound);
+$("quizText").addEventListener("change",newRound);$("gapLevel").addEventListener("change",newRound);
+$("startQuizBtn").addEventListener("click",()=>{switchView("quiz");newRound()});
+$("bankQuizBtn").addEventListener("click",()=>{switchView("quiz");$("quizText").value="all";newRound()});
+$("nextQuestionBtn").addEventListener("click",()=>{
+ if(quizIndex<quizItems.length && !quizItems[quizIndex].answered){$("quizFeedback").textContent="Have a go at this question first — you can do it!";return}
+ quizIndex++;renderQuiz();$("quizFeedback").textContent="";
+});
+function setupFlashcards(){
+ flashQuotes=poolFor($("flashText").value);flashIndex=0;flashFlipped=false;renderFlashcard();
+}
+function renderFlashcard(){
+ if(!flashQuotes.length){$("flashCardText").textContent="No cards found";$("flashCount").textContent="0 cards";return}
+ if(flashIndex>=flashQuotes.length)flashIndex=0;
+ if(flashIndex<0)flashIndex=flashQuotes.length-1;
+ const q=flashQuotes[flashIndex];
+ $("flashCount").textContent=`Card ${flashIndex+1} of ${flashQuotes.length}`;
+ $("flashSide").textContent=flashFlipped?"MEANING + ANALYSIS":"QUOTE";
+ $("flashCardText").textContent=flashFlipped?`${q.meaning} ${q.analysis}`:q.quote;
+ $("flashMeta").textContent=`${q.text} · ${q.act} · ${q.theme}`;
+ $("flashCard").style.background=flashFlipped?"linear-gradient(140deg,#147a59,#4ca989)":"linear-gradient(140deg,#5b5bd6,#8878f2)";
+ $("flashKnown").textContent=saved.learned.includes(q.id)?"✓ Learned — click to undo":"✓ I know this one";
+}
+function flipFlash(){flashFlipped=!flashFlipped;renderFlashcard()}
+$("flashCard").addEventListener("click",flipFlash);$("flashFlip").addEventListener("click",flipFlash);
+$("flashPrev").addEventListener("click",()=>{flashIndex--;flashFlipped=false;renderFlashcard()});
+$("flashNext").addEventListener("click",()=>{flashIndex++;flashFlipped=false;renderFlashcard()});
+$("flashText").addEventListener("change",setupFlashcards);
+$("flashShuffle").addEventListener("click",()=>{flashQuotes=shuffle(flashQuotes);flashIndex=0;flashFlipped=false;renderFlashcard();$("flashMotivation").textContent="Shuffled! New order, fresh recall — you’ve got this."});
+$("flashKnown").addEventListener("click",()=>{
+ if(!flashQuotes.length)return;
+ const id=flashQuotes[flashIndex].id;
+ if(saved.learned.includes(id)){saved.learned=saved.learned.filter(x=>x!==id);$("flashMotivation").textContent="No problem — keep this one in rotation until it sticks."}
+ else{saved.learned.push(id);$("flashMotivation").textContent="Nice! One more quote secured in your memory bank. 🧠"}
+ persist();renderFlashcard();renderBank();renderLearn();
+});
+function renderBank(){
+ let learned=quotes.filter(q=>saved.learned.includes(q.id));
+ $("bankCount").textContent=`${learned.length} of ${quotes.length} learned`;
+ $("macCount").textContent=`${learned.filter(q=>q.text==="Macbeth").length}/10`;
+ $("jekyllCount").textContent=`${learned.filter(q=>q.text==="Jekyll and Hyde").length}/10`;
+ $("totalCount").textContent=`${learned.length}/20`;
+ if(!learned.length){$("bankContent").innerHTML='<div class="empty">Your bank is empty for now.<br>Go to Learn quotes and press <b>“I’ve learned this”</b> when a quote sticks.</div>';return}
+ $("bankContent").innerHTML=learned.map(q=>`<div class="bank-item"><div><b>“${escapeHtml(q.quote)}”</b><p>${q.text} · ${q.act} · ${q.theme}</p></div><button class="btn outline" data-remove="${q.id}">Unlearn</button></div>`).join("");
+ document.querySelectorAll("[data-remove]").forEach(b=>b.addEventListener("click",()=>{saved.learned=saved.learned.filter(id=>id!==b.dataset.remove);persist();renderBank();renderLearn()}));
+}
+$("resetBtn").addEventListener("click",()=>{if(confirm("Reset all learned quotes and quiz scores on this device?")){saved={learned:[],best:0,rounds:0,last:null};persist();renderBank();renderLearn();renderQuiz()}});
+renderLearn();renderBank();newRound();setupFlashcards();
+</script>
+</body>
+</html>
